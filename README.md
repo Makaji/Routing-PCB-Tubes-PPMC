@@ -1,8 +1,7 @@
 # Routing-PCB-Tubes-PPMC
 Merupakan pemenuhan Tugas Besar Praktikum PMC Kelompok 3 Rombongan A1.
 
-Pengerjaan tugas ini dilakukan oleh 4 orang, dengan identitas sebagai berikut
-
+Pengerjaan tugas ini dilakukan oleh 4 orang, dengan identitas sebagai berikut.
 
 1.  13215011 - Sarmila Ramadhan
 2.  13217004 - Rebecca Viona Saisio
@@ -11,7 +10,7 @@ Pengerjaan tugas ini dilakukan oleh 4 orang, dengan identitas sebagai berikut
 
 Tujuan program ini secara umum adalah membuat sebuah layout dan routing pada PCB dot matriks dari sebuah rangkaian yang telah diinput oleh user dan menyimpan hasil desain ke sebuah file output berformat .csv.
 
-### Adapun spesifikasi dari fungsi dan prosedur yang digunakan pada keseluruhan program ini adalah sebagai berikut.
+### Spesifikasi Fungsi dan Prosedur
 
 1.  Nama fungsi : main
 
@@ -59,7 +58,12 @@ Tujuan program ini secara umum adalah membuat sebuah layout dan routing pada PCB
     
 Untuk kedepannya, akan ditambahkan fungsi lain untuk keberlangsungan program.
 
-### Berupa bantuan untuk membuat algoritma program
+### Bantuan Syntax dan Konsep
 
-  - bantuan_1 : [link](https://www.google.com)
-  - bantuan_2 : [link](https://www.google.com)
+  - Misalnya ini bantuan untuk membuat indeks PPMC jadi A(min)
+  
+      [link](https://www.google.com)
+      
+  - Misalnya ini bantuan untuk membuat hidup bahagia tanpa beban
+  
+      [link](https://www.google.com)
