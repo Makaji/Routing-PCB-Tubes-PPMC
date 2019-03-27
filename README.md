@@ -27,7 +27,7 @@ Adapun spesifikasi dari fungsi dan prosedur yang digunakan pada keseluruhan prog
     
         Fungsi ini membantu praktikan yang kesulitan menjalani perkuliahan di ITB
     
-2.  Nama fungsi : sadas
+2.  Nama fungsi : suplemen
 
     Input : 
     
@@ -43,6 +43,18 @@ Adapun spesifikasi dari fungsi dan prosedur yang digunakan pada keseluruhan prog
     
         Fungsi ini melakukan hal yang tidak lazim
     
+3.  Nama fungsi : suplemen_2
 
+    Input : 
+    
+    - Tidak ada input pada prosedur ini
+    
+    Output : 
+    
+    - Tidak ada output pada prosedur ini
+    
+    Deskripsi : 
+    
+        Fungsi ini melakukan hal yang tidak dapat kau bayangkan
     
 Untuk kedepannya, akan ditambahkan fungsi lain untuk keberlangsungan program.
