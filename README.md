@@ -61,5 +61,5 @@ Untuk kedepannya, akan ditambahkan fungsi lain untuk keberlangsungan program.
 
 ### Berupa bantuan untuk membuat algoritma program
 
-  - bantuan_1 : [link](https:www.google.com)
-  - bantuan_2 : [link](https:www.google.com)
+  - bantuan_1 : [link](https://www.google.com)
+  - bantuan_2 : [link](https://www.google.com)
