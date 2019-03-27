@@ -5,13 +5,13 @@ Pengerjaan tugas ini dilakukan oleh 4 orang, dengan identitas sebagai berikut
 
 
 1.  13215011 - Sarmila Ramadhan
-2.  13217004 - Rebecca Viona
+2.  13217004 - Rebecca Viona Saisio
 3.  13217010 - Ridhwan Athallah Wicaksono
 4.  13217016 - Gede Satya Adi Dharma
 
 Tujuan program ini secara umum adalah membuat sebuah layout dan routing pada PCB dot matriks dari sebuah rangkaian yang telah diinput oleh user dan menyimpan hasil desain ke sebuah file output berformat .csv.
 
-Adapun spesifikasi dari fungsi dan prosedur yang digunakan pada keseluruhan program ini adalah sebagai berikut.
+### Adapun spesifikasi dari fungsi dan prosedur yang digunakan pada keseluruhan program ini adalah sebagai berikut.
 
 1.  Nama fungsi : main
 
@@ -58,3 +58,8 @@ Adapun spesifikasi dari fungsi dan prosedur yang digunakan pada keseluruhan prog
         Fungsi ini melakukan hal yang tidak dapat kau bayangkan
     
 Untuk kedepannya, akan ditambahkan fungsi lain untuk keberlangsungan program.
+
+### Berupa bantuan untuk membuat algoritma program
+
+  - bantuan_1 : [link](https:www.google.com)
+  - bantuan_2 : [link](https:www.google.com)
