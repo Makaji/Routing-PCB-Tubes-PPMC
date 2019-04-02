@@ -1,3 +1,22 @@
+//**********************************************************//
+//						[Source Code]						//
+//															//
+// Institution		: Institut Teknologi Bandung			//
+// Name				: <Nama Praktikan>						//
+// File Name		: util.c								//
+// Dependency		: stdio.h, string.h, stdlib.h, main.h	//
+//															//
+// Description:												//
+//	This program declares the utility functions that may be	//
+//	called by multiple functions in multiple files.			//
+//															//
+// Status:													//
+// 1. Gede Satya A D 	- 13217016 : Membuat file			//
+// 2. <Nama Praktikan> 	- <NIM>	   : Fix the bug where num-	//
+//	  ber 2 is printed twice								//
+//															//
+//**********************************************************//
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
