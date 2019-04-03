@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int i, j, m, n;
-char R[40][40];
+char R[42][42];
 
 void cetakRouting(){
     //R[10][1]='@'; buat ngetes doang
