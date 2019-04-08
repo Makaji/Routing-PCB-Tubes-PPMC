@@ -46,3 +46,12 @@ void backdoorCheckNode(){
 	// Algoritma fungsi
 
 }
+
+void emptyRoute(routing_t *route[42][42]){
+	
+}
+
+void emptyLayout(char *layout[42][42][2]){
+
+}
+
