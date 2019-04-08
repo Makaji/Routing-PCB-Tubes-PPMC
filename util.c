@@ -46,5 +46,3 @@ void backdoorCheckNode(){
 	// Algoritma fungsi
 
 }
-
-void
