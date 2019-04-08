@@ -1,5 +1,8 @@
 # Routing-PCB-Tubes-PPMC
-Merupakan pemenuhan Tugas Besar Praktikum PMC Kelompok 3 Rombongan A1.
+Merupakan pemenuhan Tugas Besar Praktikum PMC Kelompok 3 Rombongan A1,
+EL2208 Praktikum Pemecahan Masalah dengan C Tahun Ajaran 2018/2019
+Program Studi Teknik Elektro
+Institut Teknologi Bandung
 
 Pengerjaan tugas ini dilakukan oleh 4 orang, dengan identitas sebagai berikut.
 
@@ -8,11 +11,11 @@ Pengerjaan tugas ini dilakukan oleh 4 orang, dengan identitas sebagai berikut.
 3.  13217010 - Ridhwan Athallah Wicaksono
 4.  13217016 - Gede Satya Adi Dharma
 
-Tujuan program ini secara umum adalah membuat sebuah layout dan routing pada PCB dot matriks dari sebuah rangkaian yang telah diinput oleh user dan menyimpan hasil desain ke sebuah file output berformat .csv.
+Tujuan program ini secara umum adalah membuat sebuah layout dan routing pada PCB dot matriks dari sebuah rangkaian yang telah diinput oleh user dan menyimpan hasil desain ke sebuah file output berformat 'csv'.
 
 ### Spesifikasi Fungsi dan Prosedur
 
-1.  Nama fungsi : main
+1.  Nama fungsi : 'main'
 
     Input: 
     - tipe input_1 (deskripsi)
@@ -26,7 +29,7 @@ Tujuan program ini secara umum adalah membuat sebuah layout dan routing pada PCB
     
         Fungsi ini membantu praktikan yang kesulitan menjalani perkuliahan di ITB
     
-2.  Nama fungsi : suplemen
+2.  Nama fungsi : 'suplemen'
 
     Input : 
     
@@ -42,7 +45,7 @@ Tujuan program ini secara umum adalah membuat sebuah layout dan routing pada PCB
     
         Fungsi ini melakukan hal yang tidak lazim
     
-3.  Nama fungsi : suplemen_2
+3.  Nama fungsi : 'suplemen_2'
 
     Input : 
     

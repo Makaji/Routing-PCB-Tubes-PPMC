@@ -44,7 +44,7 @@ void menu(int *status, FILE **file, int *M, int *N){
 
 	if(ope == 1){
 		// Algoritma membuat file baru
-
+		
 		*status = 2;
 	}
 	else {
