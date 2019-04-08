@@ -15,5 +15,7 @@ typedef struct routing{
 // Deklarasi fungsi utilitas pada header ini
 void konversiKoor(char str[5], int *a, int *b);
 void backdoorCheckNode();
+void emptyRoute(routing_t *route);
+void emptyLayout(char *layout[2]);
 
 #endif
