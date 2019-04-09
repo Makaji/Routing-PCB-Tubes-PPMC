@@ -4,7 +4,7 @@
 #include "cetak.h"
 
 int i, j, m, n;
-char L[42][42][2];
+char L[42][42][3];
 char R[42][42];
 
 void cetakLayout(char L[42][42][3],int m, int n){
