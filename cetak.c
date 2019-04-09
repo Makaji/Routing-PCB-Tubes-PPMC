@@ -7,7 +7,7 @@ int i, j, m, n;
 char L[42][42][2];
 char R[42][42];
 
-void cetakLayout(){
+void cetakLayout(char L[42][42][3],int m, int n){
     printf("  ");
     for (i=1;i<=m;i++){
         printf("%10d",(i));
@@ -33,7 +33,7 @@ void cetakLayout(){
     }
 }
 
-void cetakRouting(){
+void cetakRouting(char R[42][42], int m, int n){
     //R[10][1]='@'; buat ngetes doang
     //R[10][10]='*'; buat ngetes doang
     printf("  ");
