@@ -63,6 +63,7 @@ void menu(int *status, FILE **file1, FILE **file2, int *M, int *N, routing_t *ro
 		EmptyLayout(layout[42][42][2]);
 		
 		//Passing program yang ada di laptop becky ke program ini tq satya
+
 		*status = 2;
 	}
 	else {

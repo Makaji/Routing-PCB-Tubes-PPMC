@@ -3,7 +3,7 @@
 
 // Deklarasi fungsional untuk mencetak Layout dan Routing
 
-void cetakLayout (char layout[42][42][2], int M, int N);
-void cetakRouting (char routing [42][42], int M, int N);
+void cetakLayout (char L[42][42][2], int m, int n);
+void cetakRouting (char R[42][42], int m, int n);
 
 #endif
