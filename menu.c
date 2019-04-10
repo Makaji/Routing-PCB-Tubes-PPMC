@@ -30,7 +30,8 @@
 // pada kondisi mode
 // 3 = end,  main akan mengakhiri program
 
-void menu(int *status, FILE **file, int *M, int *N){
+void menu(int *status, FILE **file1, FILE **file2, int *M, int *N, routing_t *routing[42][42], 
+	  char *layout[42][42][2]){
 	// Deklarasi
 	int ope;
 
@@ -41,16 +42,41 @@ void menu(int *status, FILE **file, int *M, int *N){
 			fprint("Input tidak valid.");
 		}
 	} while (ope != 3);
-
+	
+	//Nama File agar tidak usah dideclare berkali kali
+	char NamaFile1 [50];
+	char NamaFile2 [50];
+	
 	if(ope == 1){
 		// Algoritma membuat file baru
+		printf("====== Membuat Proyek Baru ======\n");
+		printf("Masukkan nama proyek: ");
+		gets (NamaFile1);
+		printf("Masukkan ukuran PCB NxM (N,M<40): ");
+		scanf("%d %d",&M,&N);
+		strcpy(NamaFile2,NamaFile1);
+		strcat(NamaFile1,"_layout.csv");
+		strcat(NamaFile2,"_routing.csv");
+		file1=fopen(NamaFile1,"w+");
+		file2=fopen(NamaFile2,"w+");
+		EmptyRoute(routing[42][42]);
+		EmptyLayout(layout[42][42][2]);
 		
+		//Passing program yang ada di laptop becky ke program ini tq satya
+
 		*status = 2;
 	}
 	else {
 		if(ope == 2){
 			// Algoritma membuka file lama
-
+			printf("====== Memuat Proyek Lama ======\n");
+			printf("Masukkan nama proyek: ");
+			gets (NamaFile1);
+			strcpy(NamaFile2,NamaFile1);
+			strcat(NamaFile1,"_layout.csv");
+			strcat(NamaFile2,"_routing.csv");
+			file1=fopen(NamaFile1,"r");
+			file2=fopen(NamaFile2,"r");
 			*status = 2;
 		}
 		else {
