@@ -14,14 +14,15 @@
 //															//
 // Status:													//
 // 1. Gede Satya A D 	- 13217016 : Membuat file			//
-// 2. <Nama Praktikan> 	- <NIM>	   : Fix the bug where num-	//
-//	  ber 2 is printed twice								//
+// 2. Ridhwan Athallah W- 13217010 : Melengkapi fungsional	//
+//	  newFile dan loadFile									//
 //															//
 //**********************************************************//
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "menu.h"
+#include "main.h"
 
 // Konvensi status
 // 1 = menu, main akan menjalankan menu jika status berada 
@@ -30,8 +31,7 @@
 // pada kondisi mode
 // 3 = end,  main akan mengakhiri program
 
-void menu(int *status, FILE **file1, FILE **file2, int *M, int *N, routing_t *routing[42][42], 
-	  char *layout[42][42][2]){
+void menu(int *status, FILE **file1, FILE **file2, int *M, int *N, routing_t routing[42][42], char layout[42][42][2]){
 	// Deklarasi
 	int ope;
 

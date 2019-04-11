@@ -31,19 +31,204 @@
 
 // Deklarasi fungsional untuk eksekusi mode, Design Rule
 // Checker, dan penyimpanan File
-void mode(int *status, FILE **file, int M, int N){
+void mode(int *status, FILE **file, routing_t route[42][42], char layout[42][42][3], int M, int N){
+	int ope;
+	int isValid;
+	
+	printf("[Menu Utama]\n");
+	printf("Pilih Mode:\n");
+	printf("  1. Tampilkan Layout\n");
+	printf("  2. Layouting Manual\n");
+	printf("  3. Tampilkan Routing\n");
+	printf("  4. Routing Manual\n");
+	printf("  5. Design Rule Checker\n");
+	printf("  6. Simpan Proyek dan Keluar\n");
+
+	isValid = 0;
+	do{
+		printf("Pilih mode : ");
+		scanf("%d", &ope);
+
+		switch (ope){
+			case 1:
+				cetakLayout(layout, M, N);
+				isValid = 1;
+				break;
+			case 2:
+				layoutManual(layout, M, N);
+				isValid = 1;
+				break;
+			case 3:
+				cetakRouting(route, M, N);
+				isValid = 1;
+				break;
+			case 4:
+				routeManual(route, M, N);
+				isValid = 1;
+				break;
+			case 5:
+				drc(route, layout, M, N);
+				isValid = 1;
+				break;
+			case 6:
+				saveFile (file, route, layout, M, N);
+				*status = 1;
+				isValid = 1;
+				break;
+			default:
+				printf("Operator tidak valid");
+				isValid = 0;
+		}
+	}while (*status == 2);
 
 }
 
-void drc (routing_t routing[42][42], char layout[42][42][2], int M, int N){
+void drc (routing_t routing[42][42], char layout[42][42][3], int M, int N){
 	// Deklarasi variabel lokal
+	char data[50];
+	char filename[50];
+	char components[102][10],node[10][102][10];
+	int sz=0;
+	FILE *fp;
+	int rule = 0;
+	int i,j,a,b;
 
 	// Algoritma fungsional Design Rule Check
+	memset(node, 0, sizeof node);
+	scanf("%s", filename);
+	fp = fopen(filename, "r");
+	// parse external file to array of components and 2 nodes
+	while (fgets(data, 50, fp) != NULL) {
+		i = 0, j = 0;
+		while (i < 50 && data[i] != ' ') {
+			components[sz][j] = data[i];
+			++i; ++j;
+		}
+		components[sz][j] = 0;
+		j = 0; ++i;
+		int cur_node = 0;
+		while (i < 50 && data[i] != 13 && data[i] != 0) {
+			if (data[i] == ' ') {
+				node[cur_node][sz][j] = 0;
+				++cur_node;
+				j = 0;
+				++i;
+			} else {
+				node[cur_node][sz][j] = data[i];
+				++i; ++j;
+			}
+		}
+		node[cur_node][sz][j] = 0;
+		++sz;
+	}
+
+	// check components with each other
+	for (i = 0; i < sz; ++i) {
+		int cnt = 0;
+		for (j = 0; j < sz; ++j) {
+			if (i == j) {
+				continue;
+			}
+			int match = 0;
+			for (a = 1; a <= M; ++a) {
+				for (b = 1; b <= N; ++b) {
+					if (strcmp(layout[a][b], components[i]) == 0) {
+						int now = b+1;
+						char c = routing[a][b].sym;
+						int found = 0;
+						while (found == 0 && now <= N && routing[a][now].sym == c) {
+							if (strcmp(layout[a][now], components[j]) == 0) {
+								found = 1;
+								break;
+							}
+							++now;
+						}
+						now = b-1;
+						while (found == 0 && now >= 1 && routing[a][now].sym == c) {
+							if (strcmp(layout[a][now], components[j]) == 0) {
+								found = 1;
+								break;
+							}
+							--now;
+						}
+						now = a+1;
+						while (found == 0 && now <= M && routing[now][b].sym == c) {
+							if (strcmp(layout[now][b], components[j]) == 0) {
+								found = 1;
+								break;
+							}
+							++now;
+						}
+						now = a-1;
+						while (found == 0 && now >= 1 && routing[now][b].sym == c) {
+							if (strcmp(layout[now][b], components[j]) == 0) {
+								found = 1;
+								break;
+							}
+							--now;
+						}
+						if (found) {
+							match = 1;
+							break;
+						}
+					}
+				}
+				if (match) {
+					break;
+				}
+			}
+
+			int same = 0, k, l;
+			for (k = 0; k < 10; ++k) {
+				for (l = 0; l < 10; ++l) {
+					if (strcmp(node[k][i], node[l][j]) == 0) {
+						same = 1;
+						break;
+					}
+				}
+			}
+
+			if ((match && same) || (!match && !same)) {
+				++cnt;
+			}
+		}
+
+		if (cnt == sz - 1) {
+			++rule;
+		}
+	}
+
+	// print result
+	printf("%d/%d rule is checked\n", rule, sz);
 }
 
-void saveFile (FILE **file, routing_t routing[42][42], char layout[42][42][2], int M, int N, int *status){
-	// Deklarasi variabel lokal
+void saveFile (FILE **file, routing_t routing[42][42], char layout[42][42][3], int M, int N){
+    FILE *f1;
+    f1 =fopen("save_layout.csv","w");
+    //Membuka file yang ingin ditulis dengan fungsi
+    int i,j,M,N;
+    M=7;
+    N=5;
+    char arrayC[42][42][3];
 
-	// Algoritma fungsional Penyimpan File
-
+    if (f1 != NULL)
+    {
+        fprintf(f1,"%d,%d\n",M,N);
+        for (i=1;i<=N;i++){
+            for (j=1;j<=M;j++){
+                fprintf(f1,"%s,",routing[i][j]);
+            }
+            fprintf(f1,"\n");
+        }
+        
+        
+    } else {
+        printf("Failed to write file\n");
+    }
+    //Closing file
+    fclose(f1);
+    //Print array di sini dengna iterasi MN int
+    
+    return 0;
 }
+

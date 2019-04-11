@@ -35,7 +35,10 @@
 int main() {
 	// Deklarasi
 	int status;
-	FILE *file;
+	FILE *file1;
+	FILE *file2;
+	routing_t routing[42][42];
+	char layout[42][42][3];
 	int *M;
 	int *N;
 
@@ -44,10 +47,10 @@ int main() {
 
 	do {
 		if (status == 1){
-			menu(&status, &file, &M, &N);
+			menu(&status, &file1, &file2, M, N, routing, layout);
 		}
 		if (status == 2){
-			mode(&status, &file, M, N);
+			mode(&status, &file1, routing, layout, M, N);
 		}
 	} while (status != 3);
 

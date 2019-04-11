@@ -23,35 +23,47 @@
 #include "main.h"
 
 // Implementasi fungsional
-void konversiKoor(char str[5], int *a, int *b){
+void convertCoordinate(char strIn[50], int *aIn, int *bIn){
 // Program ini mengkonversi input koordinat dari bentuk string menjadi dua integer terpisah
 // jika salah satu nilai integer bernilai 0, maka input invalid.
 	// Deklarasi variabel lokal
-	char *token[5];
+	char str[50];
+	char *token;
+    const char delim[2]=",";
+    int a;
+    int b;
 
 	// Algoritma fungsi
-	*token = strtok(str,",");
-	*a = atoi(*token);
+	strcpy(str, strIn);
+	token = strtok(str, delim);
+    a = atoi(token);
+    *aIn = a;
 
-	*token = strtok(str,",");
-	*b = atoi(*token);
+    token = strtok(NULL, delim);
+    b = atoi(token);
+    *bIn = b;
+    return;
 }
 
-void backdoorCheckNode(){
-
-// Program ini menentukan apakah antara dua titik terhubung atau tidak.
-// Jika terhubung, maka akan ditandai dengan nilai node yang sama.
-	// Deklarasi variabel lokal
-
-	// Algoritma fungsi
-
+void emptyRoute(routing_t route[42][42]){
+    int i;
+    int j;
+    for (i=0;i<42;i++){
+        for(j=0;j<42;j++){
+            route[i][j].sym=32;
+            route[i][j].node = 0;
+        }
+    }
 }
 
-void emptyRoute(routing_t *route[42][42]){
-	
-}
-
-void emptyLayout(char *layout[42][42][2]){
-
+void emptyLayout(char layout[42][42][3]){
+    int i, j, k;
+        for(i = 1; i<42; i++){
+        for(j = 1; j<42; j++){
+            for(k=0;k<3;k++){
+                layout[i][j][k]=0;
+            }
+        }
+    }
 }
 
