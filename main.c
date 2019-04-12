@@ -20,7 +20,6 @@
 //															//
 //**********************************************************//
 
-#include <stdio.h>
 #include "main.h"
 #include "menu.h"
 #include "mode.h"
@@ -35,22 +34,25 @@
 int main() {
 	// Deklarasi
 	int status;
-	FILE *file1;
-	FILE *file2;
+	char fileName1[50];
+	char fileName2[50];
 	routing_t routing[42][42];
 	char layout[42][42][3];
-	int *M;
-	int *N;
+	int M;
+	int N;
+
+    M = 0;
+    N = 0;
 
 	// Algoritma
 	status = 1;
 
 	do {
 		if (status == 1){
-			menu(&status, &file1, &file2, M, N, routing, layout);
+			menu(&status, fileName1, fileName2, &M, &N, routing, layout);
 		}
 		if (status == 2){
-			mode(&status, &file1, routing, layout, M, N);
+			mode(&status, fileName1, fileName2, routing, layout, M, N);
 		}
 	} while (status != 3);
 
