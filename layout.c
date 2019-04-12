@@ -1,6 +1,6 @@
-#include <string.h>
-#include "layout.h"
 #include "main.h"
+#include "cetak.h"
+#include "layout.h"
 
 void inputKomponen(char layoutFunc[42][42][3], int M, int N, int kakiMax, int jarakMin, char komponen[3]){
     char layout[42][42][3];
@@ -163,8 +163,8 @@ void inputKomponen(char layoutFunc[42][42][3], int M, int N, int kakiMax, int ja
         }
     }while (i<kakiMax);
 
-    for(i = 1; i<=M; i++){
-        for(j = 1; j<=N; j++){
+    for(i = 1; i<42; i++){
+        for(j = 1; j<42; j++){
             for(k=0;k<3;k++){
                 layoutFunc[i][j][k]=layout[i][j][k];
             }
@@ -188,7 +188,7 @@ void layoutManual(char layoutFunc[42][42][3], int M, int N){
 
     for(i = 1; i<=M; i++){
         for(j = 1; j<=N; j++){
-            strcpy(layout,layoutFunc);
+            strcpy(layout[i][j],layoutFunc[i][j]);
         }
     }
 
@@ -216,12 +216,10 @@ void layoutManual(char layoutFunc[42][42][3], int M, int N){
             scanf("%s", &komponen[i]);
 
             if (strcmp(komponen[i], "q") == 0 || strcmp(komponen[i], "Q")==0){
-                return 0;
+                return;
             }
 
-        for(j = 0;j<3;j++){
-            printf("%c\n", komponen[i][j]);
-        }
+
         switch(komponen[i][0]){
             case 'R':
                 kakiMax = 2;
@@ -255,11 +253,11 @@ void layoutManual(char layoutFunc[42][42][3], int M, int N){
                 statusLayout = 1;
             }
             cetakLayout(layout, M, N);
+            for(i = 1; i<=M; i++){
+                for(j = 1; j<=N; j++){
+                    strcpy(layoutFunc[i][j],layout[i][j]);
+                }
+            }
     }while (statusLayout == 1);
 
-    for(i = 1; i<=M; i++){
-        for(j = 1; j<=N; j++){
-            strcpy(layoutFunc,layout);
-        }
-    }
 }

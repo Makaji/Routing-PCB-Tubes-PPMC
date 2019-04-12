@@ -17,13 +17,10 @@
 //															//
 //**********************************************************//
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #include "main.h"
 
 // Implementasi fungsional
-void convertCoordinate(char strIn[50], int *aIn, int *bIn){
+void konversiKoor(char strIn[50], int *aIn, int *bIn){
 // Program ini mengkonversi input koordinat dari bentuk string menjadi dua integer terpisah
 // jika salah satu nilai integer bernilai 0, maka input invalid.
 	// Deklarasi variabel lokal
@@ -45,6 +42,7 @@ void convertCoordinate(char strIn[50], int *aIn, int *bIn){
     return;
 }
 
+// Utilitas
 void emptyRoute(routing_t route[42][42]){
     int i;
     int j;
@@ -67,3 +65,23 @@ void emptyLayout(char layout[42][42][3]){
     }
 }
 
+void cetakRoutingNode(routing_t R[42][42], int m, int n){
+    //R[10][1]='@'; buat ngetes doang
+    //R[10][10]='*'; buat ngetes doang
+    int i;
+    int j;
+
+    printf("  ");
+    for (i=0;i<m;i++){
+        printf("%5d",(i+1));
+    }
+    printf("\n");
+    for (i=1;i<=n;i++){
+        printf("%2d",i);
+        for (j=1;j<=m;j++){
+            printf("%5d",R[j][i].node);
+        }
+        printf("\n");
+    }
+    return;
+}

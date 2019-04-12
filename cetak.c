@@ -19,9 +19,8 @@
 //	  ber 2 is printed twice								//
 //															//
 //**********************************************************//
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
+#include "main.h"
 #include "cetak.h"
 #include "main.h"
 
