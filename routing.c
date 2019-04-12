@@ -130,12 +130,67 @@ void assignRoute (routing_t routing[42][42], char sym, koordinat_t koor1, koordi
 }
 
 void routeManual (routing_t routingFunc[42][42], int M, int N){
+    routing_t routingFunc[42][42];
+    int iMin;
+    int iMax;
+    int i;
+    int j;
+    for(i = 1; i<=M; i++){
+        for(j = 1; j<=N; j++){
+            routingFunc[i][j] = (routing[i][j]);
+        }
+    }
+
+    if (koor1.x== koor2.x){
+        if (koor1.y>koor2.y){
+            iMin = koor2.y;
+            iMax = koor1.y;
+            j = koor1.x;
+        }
+        else{
+            iMin = koor1.y;
+            iMax = koor2.y;
+            j = koor1.x;
+        }
+        for (i = iMin; i<=iMax; i++){
+            routingFunc[j][i].sym = sym;
+            routingFunc[j][i].node = node;
+        }
+    }
+    else
+    {
+        if (koor1.x>koor2.x){
+            iMin = koor2.x;
+            iMax = koor1.x;
+            j = koor1.y;
+        }
+        else{
+            iMin = koor1.x;
+            iMax = koor2.x;
+            j = koor1.y;
+        }
+        for (i = iMin; i<=iMax; i++){
+            routingFunc[i][j].sym = sym;
+            routingFunc[i][j].node = node;
+        }
+    }
+    for(i = 1; i<=M; i++){
+        for(j = 1; j<=N; j++){
+            (routing[i][j]) = routingFunc[i][j];
+        }
+    }
+    return;
+}
+
+int main (routing_t routingFunc[42][42], int M, int N){
+    M = 15;
+    N = 15;
     routing_t routing[42][42];
     char sym;
     int countNode;
     koordinat_t koor[20];
     int check;
-    int i,j;
+    int i,j,k;
     char strKoor[5];
     int statusRoute;
     // Konvensi statusRoute
@@ -208,11 +263,17 @@ void routeManual (routing_t routingFunc[42][42], int M, int N){
                             }
                         }
                         else {
-                            routing[koor[i-1].x][koor[i-1].y].sym = sym;
-                            routing[koor[i-1].x][koor[i-1].y].node = countNode;
-                            cetakRouting(routing, M, N);
-                            cetakRoutingNode(routing, M, N);
-                            i++;
+                            check = checkRoute(routing, sym, koor[i-1], koor[i-1], M, N, countNode);
+                            if (check == 1){
+                                routing[koor[i-1].x][koor[i-1].y].sym = sym;
+                                routing[koor[i-1].x][koor[i-1].y].node = countNode;
+                                cetakRouting(routing, M, N);
+                                cetakRoutingNode(routing, M, N);
+                                i++;
+                            }
+                            else{
+                                printf("Invalid, aturan:\n 1. Jalur tidak bisa bersimbol sama dengan node lain\n    yang bersebelahan\n 2. Koordinat tidak bisa miring\n");
+                            }
                         }
                     }
                     else{
